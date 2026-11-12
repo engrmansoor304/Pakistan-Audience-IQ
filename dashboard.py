@@ -1,4 +1,4 @@
-﻿import json
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -91,7 +91,7 @@ with audience:
         sizes["cluster"] = sizes["cluster_id"].map(lambda number: f"Cluster {number}")
         st.plotly_chart(
             px.bar(sizes, x="cluster", y="comments", color_discrete_sequence=["#2563EB"]),
-            use_container_width=True,
+            width="stretch",
         )
         choice = st.selectbox("Inspect a cluster", sorted(selected_comments["cluster_id"].unique()))
         details = clusters.loc[clusters["cluster_id"].eq(choice)].iloc[0]
